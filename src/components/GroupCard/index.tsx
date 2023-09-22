@@ -1,19 +1,17 @@
-import { Container, Icon, Title } from './styles';
-import { TouchableOpacityProps } from 'react-native';
+import { TouchableOpacityProps } from "react-native";
+import { Container, Icon, Title } from "./styles";
 
-//Quero a tipagem do touch, por isso coloquei ele (entre) no style
 type Props = TouchableOpacityProps & {
-    title: string;
+  title: string;
 }
 
-//...rest : qualçquer outra tipagem que não coloquei no Props 
 export function GroupCard({ title, ...rest }: Props) {
-    return (
-        <Container>
-            <Icon />
-            <Title>
-                {title}
-            </Title>
-        </Container>
-    )
+  return (
+    <Container {...rest}>
+      <Icon />
+      <Title>
+        {title}
+      </Title>
+    </Container>
+  )
 }
