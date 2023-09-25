@@ -7,10 +7,12 @@ import { FlatList } from 'react-native';
 import React, { useState } from 'react';
 import { Filter } from '@components/Filter';
 import { PlayerCard } from '@components/PlayerCard';
+import { ListEmpty } from '@components/ListEmpty';
+import { Button } from '@components/Button';
 
 export function Players() {
     const [team, setTeam] = useState(' Time A');
-    const [players, setPlayers] = useState<string[]>(['']);
+    const [players, setPlayers] = useState<string[]>(['gabriel','fernando','Biro','Cleber','Pleube', 'Fernandinho']);
     return (
         <Container>
             <Header showBackButton />
@@ -60,6 +62,21 @@ export function Players() {
                     onRemove={() => {}} 
                     />
                 )}
+                ListEmptyComponent={() => (
+                    <ListEmpty
+                    message= "Que tal cadastrar a primeira turma?"
+                    /> 
+                )}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={[
+                    {paddingBottom: 100},
+                    players.length === 0 && {flex:1}
+                ]}
+            />
+
+            <Button 
+                title = "Remover Turma"
+                type= "SECONDARY"
             />
         </Container>
     )
